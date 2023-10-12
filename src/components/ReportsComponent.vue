@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-3">
     <h1 class="h1 mt-5 text-center">{{ $t("reports") }}</h1>
     <v-dialog v-model="dialog">
       <v-card>
@@ -120,14 +120,6 @@ function share(report) {
   console.log(obComment);
   navigator.share(obComment);
 }
-// let btnShare = document.querySelector(".btn-share");
-// btnShare.addEventListener("click", async () => {
-//   let shared = document.querySelector(".myp").innerText;
-//   shareData = {
-//     text: shared,
-//   };
-//   await navigator.share(shareData);
-// });
 function timeSinceReport(time) {
   return moment(time).fromNow();
 }
@@ -163,6 +155,9 @@ function deleteReport() {
 }
 </script>
 <style scoped>
+.comment-length {
+  width: 100%;
+}
 .comment-length span {
   font-size: 25px;
 }
