@@ -30,26 +30,27 @@ import { ref } from "vue";
 import axios from "axios";
 const userLog = ref({});
 function toLogIn() {
-  console.log(userLog.value);
-  axios
-    .post(`login`, userLog.value)
-    .then((res) => {
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      store.user = res.data.user;
-      store.setAuthHeaderNew(res.data.token);
-      store.getUser();
-      store.auth = true;
-      store.startSnack("success", "home", "success");
-    })
-    .catch((e) => {
-      console.log(e);
-      if (e.response.data.error == "Error in email or password.") {
-        store.startSnack("emailOrPassword", "no", "danger");
-      } else {
-        store.startSnack("error", "no", "danger");
-      }
-    });
+  axios.get("csrf-cookie").then(() => {
+    axios
+      .post(`login`, userLog.value)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        store.user = res.data.user;
+        store.setAuthHeaderNew(res.data.token);
+        store.getUser();
+        store.auth = true;
+        store.startSnack("success", "home", "success");
+      })
+      .catch((e) => {
+        console.log(e);
+        if (e.response.data.error == "Error in email or password.") {
+          store.startSnack("emailOrPassword", "no", "danger");
+        } else {
+          store.startSnack("error", "no", "danger");
+        }
+      });
+  });
 }
 </script>
 <style>
