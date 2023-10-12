@@ -53,7 +53,7 @@ export const usemainStore = defineStore("mainStore", {
     getUser() {
       if (this.user.id) {
         axios
-          .get(`users/${this.user.id}`)
+          .get(`users/${JSON.parse(localStorage.user).id}`)
           .then((res) => {
             this.user = res.data;
           })

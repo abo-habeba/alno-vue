@@ -25,8 +25,7 @@ const BASE_URL =
     : "https://api.hwnix.com/api/";
 console.log(BASE_URL);
 axios.defaults.baseURL = BASE_URL;
-// axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.token}`;
-
+axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.token}`;
 onMounted(() => {
   store.getUser();
   axios.defaults.baseURL = BASE_URL;
