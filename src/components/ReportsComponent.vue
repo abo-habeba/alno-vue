@@ -56,13 +56,6 @@
           />
           <v-btn icon="mdi-send" @click="addComment(report)"></v-btn>
         </v-card-actions>
-        <v-btn
-          class="mb-2"
-          @click="report.showComments = !report.showComments"
-          >{{
-            report.showComments ? $t("hideComments") : $t("showComments")
-          }}</v-btn
-        >
         <div class="comment-length float-right">
           <span class="mdi mdi-comment-outline"></span>
           <span class="m-1">{{ report.comments.length }}</span>
@@ -77,6 +70,13 @@
             @click="share(report)"
           ></span>
         </div>
+        <v-btn
+          class="mb-2"
+          @click="report.showComments = !report.showComments"
+          >{{
+            report.showComments ? $t("hideComments") : $t("showComments")
+          }}</v-btn
+        >
         <v-card
           class="mb-3 p-3"
           color="grey-lighten-4"
