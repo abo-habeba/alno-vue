@@ -60,10 +60,10 @@ function toLogout() {
   axios
     .post(`logout`)
     .then(() => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-      store.setAuthHeaderNew();
-      store.auth = false;
+      // localStorage.removeItem("token");
+      // localStorage.removeItem("user");
+      // store.setAuthHeaderNew();
+      // store.auth = false;
       store.startSnack("success", "login", "success");
     })
     .catch(() => {
