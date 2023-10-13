@@ -20,8 +20,8 @@ export const usemainStore = defineStore("mainStore", {
         axios
           .get(`check`)
           .then((res) => {
-            console.log(res.data, ".get(`check`).then((res)");
-            if (res.data == true) {
+            console.log(res, ".get(`check`).then((res)");
+            if (res) {
               console.log(
                 res.data,
                 ".get(`check`).then((res)  if (res.data == true)"
