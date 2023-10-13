@@ -27,10 +27,10 @@ console.log(BASE_URL);
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.token}`;
 onMounted(() => {
-  store.getUser();
   axios.defaults.baseURL = BASE_URL;
   axios.defaults.withCredentials = true;
   store.setAuthHeaderNew(localStorage.token);
+  store.getUser();
 });
 function eventOffset() {
   store.getUser();
