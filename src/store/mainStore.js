@@ -21,7 +21,7 @@ export const usemainStore = defineStore("mainStore", {
           .get(`check`)
           .then((res) => {
             console.log(res, ".get(`check`).then((res)");
-            if (res) {
+            if (res.data) {
               console.log(
                 res.data,
                 ".get(`check`).then((res)  if (res.data == true)"
