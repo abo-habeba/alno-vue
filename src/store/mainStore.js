@@ -13,18 +13,25 @@ export const usemainStore = defineStore("mainStore", {
   }),
   actions: {
     setAuthHeaderNew(token) {
+      console.log("setAuthHeaderNew");
       if (token) {
+        console.log("check if (token)");
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         axios
           .get(`check`)
           .then((res) => {
-            console.log(res.data);
+            console.log(res.data, ".get(`check`).then((res)");
             if (res.data == true) {
+              console.log(
+                res.data,
+                ".get(`check`).then((res)  if (res.data == true)"
+              );
               axios.defaults.headers.common[
                 "Authorization"
               ] = `Bearer ${token}`;
               this.auth = true;
             } else {
+              console.log(res.data, ".get(`check`).then((res)  if  else ");
               delete axios.defaults.headers.common["Authorization"];
               localStorage.removeItem("token");
               localStorage.removeItem("user");
@@ -33,7 +40,7 @@ export const usemainStore = defineStore("mainStore", {
             }
           })
           .catch((e) => {
-            console.log(e);
+            console.log(e, ".get(`check`) catch((e)");
             delete axios.defaults.headers.common["Authorization"];
             localStorage.removeItem("token");
             localStorage.removeItem("user");
@@ -41,7 +48,7 @@ export const usemainStore = defineStore("mainStore", {
             this.startSnack("error", "login", "danger");
           });
       } else {
-        console.log("else check");
+        console.log("check else if (token) {");
         delete axios.defaults.headers.common["Authorization"];
         this.startSnack("error", "login", "danger", false);
         this.auth = false;
