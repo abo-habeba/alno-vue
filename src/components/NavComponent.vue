@@ -60,13 +60,14 @@ function toLogout() {
   axios
     .post(`logout`)
     .then((res) => {
-      if (res.data.delete === true) {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        store.setAuthHeaderNew();
-        store.auth = false;
-        store.startSnack("success", "login", "success");
-      }
+      console.log(res.data.delete);
+      // if (res.data.delete === true) {
+      //   localStorage.removeItem("token");
+      //   localStorage.removeItem("user");
+      //   store.setAuthHeaderNew();
+      //   store.auth = false;
+      //   store.startSnack("success", "login", "success");
+      // }
     })
     .catch(() => {
       store.startSnack("error", "no", "danger");
