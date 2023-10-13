@@ -15,12 +15,22 @@ export const usemainStore = defineStore("mainStore", {
     setAuthHeaderNew(token) {
       if (token) {
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-        this.auth = true;
         axios
           .get(`check`)
-          .then(() => {
-            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-            this.auth = true;
+          .then((res) => {
+            console.log(res.data);
+            if (res.data == true) {
+              axios.defaults.headers.common[
+                "Authorization"
+              ] = `Bearer ${token}`;
+              this.auth = true;
+            } else {
+              delete axios.defaults.headers.common["Authorization"];
+              localStorage.removeItem("token");
+              localStorage.removeItem("user");
+              this.auth = false;
+              this.startSnack("error", "login", "danger");
+            }
           })
           .catch((e) => {
             console.log(e);

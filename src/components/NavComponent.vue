@@ -61,10 +61,7 @@ const store = usemainStore();
 function toLogout() {
   axios
     .post(`logout`)
-    .then((res) => {
-      console.log(res.data);
-      // document.cookie = `alnouran_session=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=${window.location.origin};`;
-      // document.cookie = `XSRF-TOKEN=; expires=Thu, 01 Jan 2000 00:00:00 UTC; path=${window.location.origin};`;
+    .then(() => {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       store.setAuthHeaderNew();
