@@ -62,7 +62,7 @@ function toLogout() {
   axios
     .post(`logout`)
     .then((res) => {
-      console.log(res.data.delete);
+      console.log(res.data);
       // if (res.data.delete === true) {
       //   localStorage.removeItem("token");
       //   localStorage.removeItem("user");
