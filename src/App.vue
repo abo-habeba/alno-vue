@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dir="rtl">
     <v-main>
       <div class="container">
         <NavComponent v-if="store.auth" />
