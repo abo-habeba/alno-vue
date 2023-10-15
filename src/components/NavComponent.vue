@@ -1,8 +1,6 @@
 <template>
   <div>
-    <nav
-      class="fixed-top navbar bg-info navbar-expand-lg navbar-light bg-light"
-    >
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <router-link class="navbar-brand" to="/">{{ $t("home") }}</router-link>
         <button

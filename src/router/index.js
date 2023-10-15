@@ -13,13 +13,13 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
-    meta: { title: "home" },
+    meta: { title: "Home" },
     children: [
       {
         path: "stations",
         name: "stations",
         component: StationsView,
-        meta: { title: "stations" },
+        meta: { title: "Stations" },
       },
     ],
   },
@@ -33,23 +33,25 @@ const routes = [
     path: "/report/:id",
     name: "report",
     component: ReportView,
-    meta: { title: "report" },
+    meta: { title: "Report" },
   },
   {
     path: "/auth",
     name: "auth",
     component: AuthView,
-    meta: { title: "auth" },
+    meta: { title: "Auth" },
     children: [
       {
         path: "register",
         name: "register",
         component: Register,
+        meta: { title: "Register" },
       },
       {
         path: "login",
         name: "login",
         component: LoginView,
+        meta: { title: "Log In" },
       },
     ],
   },
@@ -57,6 +59,7 @@ const routes = [
     path: "/:path(.*)*",
     name: "notfound",
     component: NotFound,
+    meta: { title: "Not Found" },
   },
 ];
 const router = createRouter({
