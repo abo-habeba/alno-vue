@@ -45,6 +45,9 @@ window.addEventListener("beforeunload", function (event) {
 });
 </script>
 <style>
+* {
+  direction: rtl;
+}
 .clickd {
   cursor: pointer !important;
 }
