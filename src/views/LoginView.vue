@@ -16,7 +16,8 @@
         v-model="userLog.password"
         :label="$t('enterPassword')"
         :rules="[(v) => !!v || 'This field is required']"
-      ></v-text-field>
+        ><Icon path="{mdiEyeOutline}" size="{1}"
+      /></v-text-field>
     </v-form>
     <v-btn location="center" @click="toLogIn" class="my-4">
       {{ $t("LogIn") }}

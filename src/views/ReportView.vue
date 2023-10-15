@@ -31,7 +31,7 @@
           <v-chip>{{ report.user.name }}</v-chip>
           <v-chip class="float-right">{{ report.station.name }}</v-chip>
         </v-card-title>
-        <v-card-text class="my-2">{{ report.body }}</v-card-text>
+        <v-card-text class="my-2 text-content">{{ report.body }}</v-card-text>
         <v-chip>{{ date(report.created_at) }}</v-chip>
         <v-chip class="float-right">{{
           timeSinceReport(report.created_at)
@@ -66,7 +66,7 @@
           :key="i"
         >
           <v-chip>{{ comment.user.name }}</v-chip>
-          <div>{{ comment.body }}</div>
+          <div class="text-content">>{{ comment.body }}</div>
           <span class="float-right">{{
             timeSinceReport(comment.created_at)
           }}</span>

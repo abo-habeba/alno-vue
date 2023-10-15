@@ -1,5 +1,5 @@
 <template>
-  <v-app dir="rtl">
+  <v-app>
     <v-main>
       <div class="container">
         <NavComponent v-if="store.auth" />
@@ -45,9 +45,6 @@ window.addEventListener("beforeunload", function (event) {
 });
 </script>
 <style>
-* {
-  direction: rtl;
-}
 .clickd {
   cursor: pointer !important;
 }
