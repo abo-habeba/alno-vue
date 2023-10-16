@@ -32,7 +32,7 @@
         :type="passToggle == true ? 'password' : 'text'"
         variant="outlined"
         autocomplete="ON"
-        v-model="userLog.password"
+        v-model="user.password"
         :label="$t('enterPassword')"
         :rules="[(v) => !!v || 'This field is required']"
         ><span
