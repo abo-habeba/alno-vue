@@ -25,7 +25,12 @@
         style="color: wheat"
         location="center"
         class="my-3 btn-password"
-        @click="editPass = !editPass"
+        @click="
+          (editPass = !editPass),
+            editPass == false
+              ? (user.password = '')
+              : (user.password = user.password)
+        "
         >{{ !editPass ? $t("changePassword") : $t("noChangePassword") }}</v-btn
       >
       <v-text-field
