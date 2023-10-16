@@ -63,8 +63,8 @@ function toLogout() {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       store.setAuthHeaderNew();
-      store.auth = false;
       store.startSnack("success", "login", "success", false);
+      store.auth = false;
     })
     .catch(() => {
       store.startSnack("error", "no", "danger");
