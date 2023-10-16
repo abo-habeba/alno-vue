@@ -10,14 +10,21 @@
         :rules="[(v) => !!v || 'This field is required']"
       ></v-text-field>
       <v-text-field
-        type="password"
+        :type="passToggle == true ? 'password' : 'text'"
         variant="outlined"
         autocomplete="ON"
         v-model="userLog.password"
         :label="$t('enterPassword')"
         :rules="[(v) => !!v || 'This field is required']"
-        ><Icon path="{mdiEyeOutline}" size="{1}"
-      /></v-text-field>
+        ><span
+          class="mdi passToggle"
+          :class="{
+            'mdi-eye-outline': passToggle,
+            'mdi-eye-off-outline': !passToggle,
+          }"
+          @click="passToggle = !passToggle"
+        ></span
+      ></v-text-field>
     </v-form>
     <v-btn location="center" @click="toLogIn" class="my-4">
       {{ $t("LogIn") }}
@@ -30,6 +37,7 @@ const store = usemainStore();
 import { ref } from "vue";
 import axios from "axios";
 const userLog = ref({});
+const passToggle = ref(true);
 function toLogIn() {
   axios.get("csrf-cookie").then(() => {
     axios
@@ -58,5 +66,15 @@ function toLogIn() {
 .login {
   max-width: 500px;
   margin: 5% auto;
+}
+.passToggle {
+  position: relative;
+  font-size: 35px;
+  cursor: pointer;
+}
+.passToggle::before {
+  position: absolute;
+  right: -460px;
+  top: -11px;
 }
 </style>
