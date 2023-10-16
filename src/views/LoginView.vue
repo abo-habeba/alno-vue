@@ -49,7 +49,7 @@ function toLogIn() {
         store.setAuthHeaderNew(res.data.token);
         store.getUser();
         store.auth = true;
-        store.startSnack("success", "home", "success");
+        store.startSnack("success", "home", "success", false);
       })
       .catch((e) => {
         console.log(e);

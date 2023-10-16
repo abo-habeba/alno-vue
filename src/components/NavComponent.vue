@@ -64,7 +64,7 @@ function toLogout() {
       localStorage.removeItem("user");
       store.setAuthHeaderNew();
       store.auth = false;
-      store.startSnack("success", "login", "success");
+      store.startSnack("success", "login", "success", false);
     })
     .catch(() => {
       store.startSnack("error", "no", "danger");

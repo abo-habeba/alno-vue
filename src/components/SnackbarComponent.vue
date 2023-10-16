@@ -1,16 +1,18 @@
 <template>
-  <div class="text-center ma-2">
-    <v-snackbar :color="store.coler" location="top" v-model="store.snackbar">
-      <v-row>
-        <v-col class="text-center" cols="12">
-          <h6 class="text-center">{{ $t(store.text) }}</h6>
-        </v-col>
-        <v-col class="d-flex align-items-center justify-content-center">
-          <v-btn class="m-2" variant="outlined" @click="store.snackbar = false">
-            {{ $t("close") }}
-          </v-btn>
-        </v-col>
-      </v-row>
+  <div class="text-center">
+    <v-snackbar
+      location="top"
+      class="text-content"
+      :color="store.coler"
+      v-model="store.snackbar"
+      :timeout="store.timeout"
+    >
+      {{ $t(store.text) }}
+      <template v-slot:actions>
+        <v-btn color="white" variant="text" @click="store.snackbar = false">
+          {{ $t("close") }}
+        </v-btn>
+      </template>
     </v-snackbar>
   </div>
 </template>

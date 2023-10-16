@@ -5,11 +5,11 @@ export const usemainStore = defineStore("mainStore", {
     auth: false,
     user: localStorage.user ? JSON.parse(localStorage.user) : false,
     reports: ["getData"],
-    snackbar: false,
-    text: " ",
+    snackbar: true,
+    text: "ddddddddddddd ",
     coler: "success",
     urlDirec: " ",
-    setTime: " ",
+    timeout: 1500,
   }),
   actions: {
     setAuthHeaderNew(token) {
@@ -59,12 +59,12 @@ export const usemainStore = defineStore("mainStore", {
       urlDirect,
       coler = "success",
       snack = true,
-      setTime = 1000
+      timeout = 1500
     ) {
       this.text = text;
       this.coler = coler;
       this.urlDirec = urlDirect;
-      this.setTime = setTime;
+      this.timeout = timeout;
       this.snackbar = snack;
     },
     getUser() {
