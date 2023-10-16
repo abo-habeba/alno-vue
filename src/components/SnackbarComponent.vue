@@ -25,7 +25,7 @@ const store = usemainStore();
 watch(
   () => store.snackbar,
   (isSnack) => {
-    if (isSnack) {
+    if (isSnack || !isSnack) {
       setTimeout(() => {
         if (store.urlDirec == "back") {
           router.go(-1);
