@@ -25,12 +25,7 @@
         style="color: wheat"
         location="center"
         class="my-3 btn-password"
-        @click="
-          (editPass = !editPass),
-            editPass == false
-              ? (user.password = '')
-              : (user.password = user.password)
-        "
+        @click="editPass = !editPass"
         >{{ !editPass ? $t("changePassword") : $t("noChangePassword") }}</v-btn
       >
       <v-text-field
@@ -73,6 +68,7 @@ function editProfil() {
   axios
     .put(`users/${store.user.id}`, user.value)
     .then(() => {
+      console.log("editProfil.then");
       store.startSnack("success", "no", "success");
       if (user.value.password) {
         store.logout();
