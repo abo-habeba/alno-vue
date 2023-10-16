@@ -6,7 +6,7 @@ export const usemainStore = defineStore("mainStore", {
     user: localStorage.user ? JSON.parse(localStorage.user) : false,
     reports: ["getData"],
     snackbar: true,
-    text: "ddddddddddddd ",
+    text: " ",
     coler: "success",
     urlDirec: " ",
     timeout: 1500,
@@ -58,7 +58,7 @@ export const usemainStore = defineStore("mainStore", {
       text,
       urlDirect,
       coler = "success",
-      snack = true,
+      snack = false,
       timeout = 1500
     ) {
       this.text = text;
