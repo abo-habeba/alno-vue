@@ -7,8 +7,23 @@
     <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico" /> -->
     <title><%= htmlWebpackPlugin.options.title %></title>
     <style>
-      .text-content{
+      .text-content {
         direction: rtl !important;
+      }
+      .passToggle {
+        position: relative;
+        font-size: 35px;
+        cursor: pointer;
+      }
+      .passToggle::before {
+        position: absolute;
+        left: 325px;
+      }
+      @media screen and (max-width: 990px) {
+        .passToggle::before {
+          left: 440px;
+          top: -10px;
+        }
       }
     </style>
   </head>

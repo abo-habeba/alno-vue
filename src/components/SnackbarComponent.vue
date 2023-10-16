@@ -38,7 +38,7 @@ watch(
         } else {
           router.push({ path: store.urlDirec });
         }
-      }, 1000);
+      }, store.timeout);
     }
   }
 );

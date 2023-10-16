@@ -67,14 +67,4 @@ function toLogIn() {
   max-width: 500px;
   margin: 5% auto;
 }
-.passToggle {
-  position: relative;
-  font-size: 35px;
-  cursor: pointer;
-}
-.passToggle::before {
-  position: absolute;
-  right: -460px;
-  top: -11px;
-}
 </style>
