@@ -38,6 +38,7 @@ watch(
         } else {
           router.push({ path: store.urlDirec });
         }
+        store.redirect = false;
       }, store.timeout);
     }
   }
