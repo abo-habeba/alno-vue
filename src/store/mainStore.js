@@ -2,6 +2,7 @@ import axios from "axios";
 import { defineStore } from "pinia";
 export const usemainStore = defineStore("mainStore", {
   state: () => ({
+    passToggle: true,
     auth: false,
     user: localStorage.user ? JSON.parse(localStorage.user) : false,
     reports: ["getData"],

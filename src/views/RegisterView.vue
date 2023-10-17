@@ -29,20 +29,16 @@
         v-model="user.phone"
       ></v-text-field>
       <v-text-field
-        :type="passToggle == true ? 'password' : 'text'"
+        :type="store.passToggle == true ? 'password' : 'text'"
+        :append-icon="
+          store.passToggle ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
+        "
+        @click:append="store.passToggle = !store.passToggle"
         variant="outlined"
         autocomplete="ON"
         v-model="user.password"
         :label="$t('enterPassword')"
         :rules="[(v) => !!v || 'This field is required']"
-        ><span
-          class="mdi passToggle"
-          :class="{
-            'mdi-eye-outline': passToggle,
-            'mdi-eye-off-outline': !passToggle,
-          }"
-          @click="passToggle = !passToggle"
-        ></span
       ></v-text-field>
       <v-select
         label="اختر الوظيفة"
@@ -122,7 +118,6 @@ const stations = ref(["getData"]);
 const user = ref({});
 const stationsadd = ref({});
 const dialog = ref();
-const passToggle = ref(true);
 const Job_title = ref([
   { id: "engeneer", name: "مهندس" },
   { id: "technician", name: "فني" },

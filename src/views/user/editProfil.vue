@@ -30,20 +30,16 @@
       >
       <v-text-field
         v-if="editPass"
-        :type="passToggle == true ? 'password' : 'text'"
+        :type="store.passToggle == true ? 'password' : 'text'"
+        :append-icon="
+          store.passToggle ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
+        "
+        @click:append="store.passToggle = !store.passToggle"
         variant="outlined"
         autocomplete="ON"
         v-model="user.password"
         :label="$t('enterPassword')"
         :rules="[(v) => !!v || 'This field is required']"
-        ><span
-          class="mdi passToggle"
-          :class="{
-            'mdi-eye-outline': passToggle,
-            'mdi-eye-off-outline': !passToggle,
-          }"
-          @click="passToggle = !passToggle"
-        ></span
       ></v-text-field>
     </v-form>
     <v-btn
@@ -63,7 +59,6 @@ import axios from "axios";
 import { ref } from "vue";
 const user = ref(store.user);
 const editPass = ref(false);
-const passToggle = ref(true);
 function editProfil() {
   axios
     .put(`users/${store.user.id}`, user.value)
