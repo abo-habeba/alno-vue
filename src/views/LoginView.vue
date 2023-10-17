@@ -2,7 +2,7 @@
   <div>
     <div class="login">
       <img class="img-log" src="../assets/Report.png" />
-      <h1 class="h1 my-5 text-center">{{ $t("LogIn") }}</h1>
+      <h1 class="h1 my-3 text-center">{{ $t("LogIn") }}</h1>
       <v-form class="my-3" lazy-validation>
         <v-text-field
           type="email"
@@ -13,10 +13,10 @@
         ></v-text-field>
         <v-text-field
           :type="store.passToggle == true ? 'password' : 'text'"
-          :append-icon="
+          :append-inner-icon="
             store.passToggle ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
           "
-          @click:append="store.passToggle = !store.passToggle"
+          @click:appendInner="store.passToggle = !store.passToggle"
           variant="outlined"
           v-model="userLog.password"
           :label="$t('enterPassword')"
@@ -71,8 +71,8 @@ function toLogIn() {
 }
 .img-log {
   display: block;
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  height: 10%;
   margin: auto;
 }
 </style>

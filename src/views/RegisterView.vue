@@ -30,10 +30,10 @@
       ></v-text-field>
       <v-text-field
         :type="store.passToggle == true ? 'password' : 'text'"
-        :append-icon="
+        :append-inner-icon="
           store.passToggle ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
         "
-        @click:append="store.passToggle = !store.passToggle"
+        @click:appendInner="store.passToggle = !store.passToggle"
         variant="outlined"
         autocomplete="ON"
         v-model="user.password"
