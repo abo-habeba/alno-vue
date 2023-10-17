@@ -23,9 +23,9 @@ import { usemainStore } from "@/store/mainStore";
 import { watch } from "vue";
 const store = usemainStore();
 watch(
-  () => store.snackbar,
-  (isSnack) => {
-    if (isSnack || !isSnack) {
+  () => store.redirect,
+  (isredirect) => {
+    if (isredirect) {
       setTimeout(() => {
         if (store.urlDirec == "back") {
           router.go(-1);

@@ -5,7 +5,8 @@ export const usemainStore = defineStore("mainStore", {
     auth: false,
     user: localStorage.user ? JSON.parse(localStorage.user) : false,
     reports: ["getData"],
-    snackbar: null,
+    snackbar: false,
+    redirect: false,
     text: " ",
     coler: "success",
     urlDirec: " ",
@@ -66,6 +67,7 @@ export const usemainStore = defineStore("mainStore", {
       this.urlDirec = urlDirect;
       this.timeout = timeout;
       this.snackbar = snack;
+      this.redirect = true;
     },
     getUser() {
       if (this.user.id) {
