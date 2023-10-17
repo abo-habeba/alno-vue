@@ -107,6 +107,10 @@
         >{{ $t("register") }}</v-btn
       >
     </v-form>
+    <div>
+      <span>{{ $t("gotoAccount") }}</span>
+      <router-link to="/auth/login">{{ $t("LogIn") }}</router-link>
+    </div>
   </div>
 </template>
 <script setup>

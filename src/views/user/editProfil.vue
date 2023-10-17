@@ -51,7 +51,7 @@
       location="center"
       class="my-3"
       @click="editProfil"
-      >{{ $t("editProfil") }}</v-btn
+      >{{ $t("save") }}</v-btn
     >
   </div>
 </template>

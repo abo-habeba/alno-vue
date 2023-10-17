@@ -59,7 +59,6 @@ const routes = [
     path: "/:path(.*)*",
     name: "notfound",
     component: NotFound,
-    meta: { title: "Not Found" },
   },
 ];
 const router = createRouter({

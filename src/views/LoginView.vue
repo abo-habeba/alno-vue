@@ -1,34 +1,41 @@
 <template>
-  <div class="login">
-    <h1 class="h1 my-4 text-center">{{ $t("LogIn") }}</h1>
-    <v-form class="my-5" lazy-validation>
-      <v-text-field
-        type="email"
-        variant="outlined"
-        v-model="userLog.email"
-        :label="$t('enterEmail')"
-        :rules="[(v) => !!v || 'This field is required']"
-      ></v-text-field>
-      <v-text-field
-        :type="passToggle == true ? 'password' : 'text'"
-        variant="outlined"
-        autocomplete="ON"
-        v-model="userLog.password"
-        :label="$t('enterPassword')"
-        :rules="[(v) => !!v || 'This field is required']"
-        ><span
-          class="mdi passToggle"
-          :class="{
-            'mdi-eye-outline': passToggle,
-            'mdi-eye-off-outline': !passToggle,
-          }"
-          @click="passToggle = !passToggle"
-        ></span
-      ></v-text-field>
-    </v-form>
-    <v-btn location="center" @click="toLogIn" class="my-4">
-      {{ $t("LogIn") }}
-    </v-btn>
+  <div>
+    <div class="login">
+      <img class="img-log" src="../assets/Report.png" />
+      <h1 class="h1 my-5 text-center">{{ $t("LogIn") }}</h1>
+      <v-form class="my-3" lazy-validation>
+        <v-text-field
+          type="email"
+          variant="outlined"
+          v-model="userLog.email"
+          :label="$t('enterEmail')"
+          :rules="[(v) => !!v || 'This field is required']"
+        ></v-text-field>
+        <v-text-field
+          :type="passToggle == true ? 'password' : 'text'"
+          variant="outlined"
+          autocomplete="ON"
+          v-model="userLog.password"
+          :label="$t('enterPassword')"
+          :rules="[(v) => !!v || 'This field is required']"
+          ><span
+            class="mdi passToggle"
+            :class="{
+              'mdi-eye-outline': passToggle,
+              'mdi-eye-off-outline': !passToggle,
+            }"
+            @click="passToggle = !passToggle"
+          ></span
+        ></v-text-field>
+      </v-form>
+      <v-btn location="center" @click="toLogIn" class="mt-2">
+        {{ $t("LogIn") }}
+      </v-btn>
+    </div>
+    <div>
+      <span>{{ $t("dontAccount") }}</span>
+      <router-link to="/auth/register">{{ $t("register") }}</router-link>
+    </div>
   </div>
 </template>
 <script setup>
@@ -66,5 +73,11 @@ function toLogIn() {
 .login {
   max-width: 500px;
   margin: 5% auto;
+}
+.img-log {
+  display: block;
+  width: 35%;
+  height: 35%;
+  margin: auto;
 }
 </style>

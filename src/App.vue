@@ -5,7 +5,6 @@
         <NavComponent v-if="store.auth" />
         <SnackbarComponent />
         <router-view />
-        <FooterComponent />
       </div>
     </v-main>
   </v-app>
@@ -15,7 +14,7 @@ import axios from "axios";
 import { onMounted } from "vue";
 import NavComponent from "@/components/NavComponent.vue";
 import SnackbarComponent from "@/components/SnackbarComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+// import FooterComponent from "@/components/FooterComponent.vue";
 import { usemainStore } from "@/store/mainStore";
 const store = usemainStore();
 console.log(window.location.origin);
