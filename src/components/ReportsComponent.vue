@@ -118,8 +118,6 @@ function share(report) {
     text: textShare + "\n",
     url: window.location.origin + "/report/" + report.id,
   };
-
-  console.log(obComment);
   navigator.share(obComment);
 }
 function timeSinceReport(time) {

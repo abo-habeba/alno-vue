@@ -18,6 +18,7 @@
           "
           @click:appendInner="store.passToggle = !store.passToggle"
           variant="outlined"
+          autocomplete="no"
           v-model="userLog.password"
           :label="$t('enterPassword')"
           :rules="[(v) => !!v || 'This field is required']"
@@ -40,14 +41,20 @@ const store = usemainStore();
 import { ref } from "vue";
 import axios from "axios";
 const userLog = ref({});
-function toLogIn() {
+function toLogIn(e) {
+  const myButton = e.currentTarget;
+  myButton.disabled = true;
+  myButton.style.cursor = "progress";
   axios.get("csrf-cookie").then(() => {
     axios
       .post(`login`, userLog.value)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
+        console.log(res);
         store.user = res.data.user;
+        console.log(res.data.user);
+        console.log(res.data.token);
         store.setAuthHeaderNew(res.data.token);
         store.getUser();
         store.auth = true;
@@ -60,6 +67,8 @@ function toLogIn() {
         } else {
           store.startSnack("error", "no", "danger");
         }
+        myButton.disabled = false;
+        myButton.style.cursor = "default";
       });
   });
 }

@@ -56,7 +56,10 @@
 import { usemainStore } from "@/store/mainStore";
 import axios from "axios";
 const store = usemainStore();
-function toLogout() {
+function toLogout(e) {
+  const myButton = e.currentTarget;
+  myButton.disabled = true;
+  myButton.style.cursor = "progress";
   axios
     .post(`logout`)
     .then(() => {
@@ -68,6 +71,8 @@ function toLogout() {
     })
     .catch(() => {
       store.startSnack("error", "no", "danger");
+      myButton.disabled = false;
+      myButton.style.cursor = "default";
     });
 }
 </script>
